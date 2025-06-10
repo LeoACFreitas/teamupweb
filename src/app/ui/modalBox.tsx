@@ -3,12 +3,14 @@ import { ReactNode } from "react"
 
 export default function ModalBox({ children }: {children: ReactNode}) {
     const isSmallScreen = useMediaQuery('(max-width:600px)')
-    if (isSmallScreen) {
-        boxStyle.width = 300
+    
+    const currentBoxStyle = {
+        ...boxStyle,
+        width: isSmallScreen ? 300 : boxStyle.width
     }
     
     return (
-        <Box sx={boxStyle}>
+        <Box sx={currentBoxStyle}>
             {children}
         </Box>
     )

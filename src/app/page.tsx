@@ -11,15 +11,15 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { SnackbarProvider } from "notistack"
 import Header from "./ui/header"
 
-export default function Home() {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: grey[300],
-      },
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: grey[300],
     },
-  })
-  
+  },
+})
+
+export default function Home() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

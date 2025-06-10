@@ -38,26 +38,28 @@ function Login({ auth }: { auth: any }) {
     }, 1000)
   }
 
-  if (auth.isAuthenticated && (!user || !user.user_id)) {
-    fetchWithAuth(`${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,).then((r: any) => {
-      try {
-        if (!r.ok) {
-          throw new Error('Failed to fetch data')
-        }
-        r.json().then((user: TOUser) => {
-          if (!user) {
-            setOpenModalCreateUser(true)
-          } else {
-            dispatch(setUser(user))
+  useEffect(() => {
+    if (auth.isAuthenticated && (!user || !user.user_id)) {
+      fetchWithAuth(`${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,).then((r: any) => {
+        try {
+          if (!r.ok) {
+            throw new Error('Failed to fetch data')
           }
-        })
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    })
-  } else if (!auth.isAuthenticated) {
-    loadGoogle()
-  }
+          r.json().then((user: TOUser) => {
+            if (!user) {
+              setOpenModalCreateUser(true)
+            } else {
+              dispatch(setUser(user))
+            }
+          })
+        } catch (error) {
+          console.error('Error fetching data:', error)
+        }
+      })
+    } else if (!auth.isAuthenticated && isClient) {
+      loadGoogle()
+    }
+  }, [auth.isAuthenticated, user, isClient, fetchWithAuth, dispatch])
 
   function logoutUser() {
     dispatch(logout())
