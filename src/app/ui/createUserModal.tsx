@@ -4,7 +4,7 @@ import Modal from '@mui/material/Modal';
 import { CircularProgress, TextField } from '@mui/material';
 import { useState } from 'react';
 import { TOUser } from '../types';
-import { useFetch } from '../lib/FetchContext';
+import { useFetch } from '../lib/fetchContext.js';
 import { useSnackbar } from 'notistack';
 import ModalBox from './modalBox';
 import CountriesInput from './countriesInput';
