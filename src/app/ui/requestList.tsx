@@ -39,16 +39,18 @@ export default function RequestList() {
     prevIsAuthenticated.current = isAuthenticated
   }, [isAuthenticated])
 
+  useEffect(() => {
+    if (executeFirstFetch.current) {
+      executeFirstFetch.current = false
+      fetchRequests()
+    }
+  }, [filter])
+
   function resetRequests() {
     executeFirstFetch.current = true
     setRequests([])
     setPage(1)
     setHasMore(true)
-  }
-
-  if (executeFirstFetch.current) {
-    executeFirstFetch.current = false
-    fetchRequests()
   }
 
   function fetchRequests() {
