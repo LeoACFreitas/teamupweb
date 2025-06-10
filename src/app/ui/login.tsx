@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setAuth, logout, setUser } from '../lib/authSlice'
 import { connect } from 'react-redux'
 import { Button } from '@mui/material'
-import { useFetch } from '../lib/FetchContext'
+import { useFetch } from '../lib/fetchContext.js'
 import { TOUser } from "../types"
 import CreateUserModal from "./createUserModal"
 

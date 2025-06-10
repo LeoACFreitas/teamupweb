@@ -3,7 +3,7 @@ import GameAutocomplete from "./gameAutocomplete";
 import { TORequest, TOGame } from '../types';
 import { useState } from "react";
 import ModalBox from "./modalBox";
-import { useFetch } from "../lib/FetchContext";
+import { useFetch } from "../lib/fetchContext.js";
 import { useSnackbar } from "notistack";
 import { useDispatch } from "react-redux";
 import { incrementRequestsChangedOnSession } from "../lib/requestSlice";

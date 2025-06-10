@@ -1,7 +1,7 @@
 import { Autocomplete, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { TOGame } from "../types";
-import { useFetch } from "../lib/FetchContext";
+import { useFetch } from "../lib/fetchContext.js";
 
 export default function  GameAutocomplete({onChange}: {onChange: Function}) {
     const [options, setOptions] = useState<TOGame[]>([]);

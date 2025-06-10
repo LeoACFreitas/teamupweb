@@ -3,7 +3,7 @@
 import styles from "./page.module.css"
 import RequestList from "./ui/requestList"
 import { store, persistor } from './lib/store'
-import { FetchProvider } from './lib/FetchContext'
+import { FetchProvider } from './lib/fetchContext.js'
 import { Provider } from 'react-redux'
 import { createTheme, ThemeProvider } from "@mui/material"
 import { grey } from "@mui/material/colors"
